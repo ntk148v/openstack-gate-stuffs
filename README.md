@@ -11,7 +11,7 @@ All stuffs about OpenStack Gate Job.
 
 4. [(PS)Multinode gates, dockerhub publisher prework](https://review.openstack.org/#/c/471428/)
 
-5. [(PS)Adding the Spec for upgrade test toolset](https://review.openstack.org/#/c/449295/)
+5. [(PS)Adding the Spec for upgrade test toolset](https://review.openstack.org/#/c/449295/) - [Github](https://github.com/ntk148v/qa-specs/blob/master/specs/other/openstack-upgrade-testing.rst)
 
 6. [(L)An introductin to the OpenStackCI](https://www.objectif-libre.com/en/blog/2016/08/29/introduction-a-la-ci-dopenstack/)
 
