@@ -1,6 +1,53 @@
 # OpenStack Gate Job Research
 All stuffs about OpenStack Gate Job.
 
+## Create new test jobs - Basic steps
+
+1. Check out the [project-config](https://github.com/openstack-infra/project-config)
+   repository and make it ready for patch submission like creating a branch
+   where you work on.
+
+2. Add new jobs in file `project-config/jobs/projects.yaml` - sample job:
+
+    ```
+    - '{pipeline}-<project_name>-dsvm-functional{special}-{node}{suffix}':
+          pipeline: gate
+          node: ubuntu-trusty  # can be ubuntu-xenial, centos-7, centos-7-2
+          special: ''
+          suffix: '' # -nv - non-voting
+          branch-override: default
+    ```
+
+3. Now define how to trigger the job (order). Edit file
+   `project-config/zuul/layout.yaml` and add new jobs:
+
+    ```
+    - name: <project_name>
+      template:
+        - name: template-1
+        - name: template-2
+      check:
+        - gate-<project_name>-dsvm-deploy-centos-binary-centos-7-nv # etc.
+      experimental:
+        - gate-<project_name>-dsvm-deploy-centos-binary-centos-7-nv-test # etc.
+    ```
+4. Create a file `project-config/jenkins/<project_name>.yaml`.
+
+5. Setup tools in <project_name> side, which was used in .yaml file (step 4).
+
+## Multinode gate jobs - new set of testtools (draft).
+
+1. Use Kolla-ansible as orchestration-tool to control the deployment/upgrade
+   process. Multinode deployment.
+
+2. Rolling upgrade methododology must be defined by each project. Each project
+   has a different rolling upgrade strategy.
+
+3. Create rolling upgrade test scripts.
+
+    - Run subset of tempest smoke test?
+    - Send several async requests?
+
 ## References
 
 1. [(PS)Enable multinode gate - ocata](https://review.openstack.org/#/c/471401/)
@@ -18,3 +65,5 @@ All stuffs about OpenStack Gate Job.
 7. [(L)OpenStack Infra Jenkins Job](http://abregman.com/2016/03/05/openstack-infra-jenkins-jobs/)
 
 8. [(L)Understanding OpenStack CI system](http://www.joinfu.com/2014/01/understanding-the-openstack-ci-system/)
+
+9. [(L)Trello link about grenade-dsvm-mutlinode-test](https://trello.com/c/lhiB7ALY/126-run-grenade-dsvm-multinode-test-successfully)
