@@ -66,4 +66,8 @@ All stuffs about OpenStack Gate Job.
 
 8. [(L)Understanding OpenStack CI system](http://www.joinfu.com/2014/01/understanding-the-openstack-ci-system/)
 
-9. [(L)Trello link about grenade-dsvm-mutlinode-test](https://trello.com/c/lhiB7ALY/126-run-grenade-dsvm-multinode-test-successfully)
+9. [(Trello)Trello link about grenade-dsvm-mutlinode-test](https://trello.com/c/lhiB7ALY/126-run-grenade-dsvm-multinode-test-successfully)
+
+10.[(ML)Grenade multinode partial upgrade](https://openstack.nimeyo.com/65081/openstack-neutron-upgrade-grenade-multinode-partial-upgrade)
+
+11.[Ironic Rolling upgrade](related/ironic_rolling_upgrade.md)
